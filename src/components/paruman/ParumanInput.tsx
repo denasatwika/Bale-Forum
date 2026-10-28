@@ -12,31 +12,31 @@ function ParumanInput({ onAddThread }: ParumanInputProps) {
 
   return (
     <form
-      className="form"
       onSubmit={(event) => {
         event.preventDefault();
         onAddThread({ title, category, body });
       }}
     >
-      <label htmlFor="title">
-        Judul paruman
-        <input id="title" type="text" value={title} onChange={onTitleChange} required />
-      </label>
-      <label htmlFor="category">
-        Banjar (kategori)
+      <div className="mb-3">
+        <label htmlFor="title" className="form-label fw-medium">Judul paruman</label>
+        <input id="title" type="text" className="form-control" value={title} onChange={onTitleChange} required />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="category" className="form-label fw-medium">Topik</label>
         <input
           id="category"
           type="text"
+          className="form-control"
           value={category}
           onChange={onCategoryChange}
           placeholder="contoh: react, karier, kuliah"
         />
-      </label>
-      <label htmlFor="body">
-        Isi paruman
-        <textarea id="body" rows={8} value={body} onChange={onBodyChange} required />
-      </label>
-      <button type="submit" className="button">Ajukan paruman</button>
+      </div>
+      <div className="mb-4">
+        <label htmlFor="body" className="form-label fw-medium">Isi paruman</label>
+        <textarea id="body" rows={8} className="form-control" value={body} onChange={onBodyChange} required />
+      </div>
+      <button type="submit" className="btn btn-primary px-4">Ajukan paruman</button>
     </form>
   );
 }

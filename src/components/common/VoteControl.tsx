@@ -12,26 +12,28 @@ function VoteControl({ upVotesBy, downVotesBy, authUserId, onVote }: VoteControl
   const isDownVoted = authUserId ? downVotesBy.includes(authUserId) : false;
 
   return (
-    <div className="vote-control">
+    <div className="btn-group btn-group-sm" role="group" aria-label="Voting">
       <button
         type="button"
-        className={`vote-button ${isUpVoted ? 'vote-button--up-active' : ''}`}
         aria-label="Setuju"
         aria-pressed={isUpVoted}
         onClick={() => onVote(isUpVoted ? 0 : 1)}
+        className={`btn ${isUpVoted ? 'btn-primary' : 'btn-outline-secondary'}`}
       >
         ▲
-        <span>{upVotesBy.length}</span>
+        {' '}
+        {upVotesBy.length}
       </button>
       <button
         type="button"
-        className={`vote-button ${isDownVoted ? 'vote-button--down-active' : ''}`}
         aria-label="Tidak setuju"
         aria-pressed={isDownVoted}
         onClick={() => onVote(isDownVoted ? 0 : -1)}
+        className={`btn ${isDownVoted ? 'btn-dark' : 'btn-outline-secondary'}`}
       >
         ▼
-        <span>{downVotesBy.length}</span>
+        {' '}
+        {downVotesBy.length}
       </button>
     </div>
   );

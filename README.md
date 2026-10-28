@@ -9,7 +9,7 @@ Setiap fitur forum diberi padanan dari kehidupan banjar:
 | Forum umum | Balé | Makna |
 |---|---|---|
 | Thread | Paruman | Rapat atau musyawarah warga |
-| Kategori | Banjar | Kelompok tempat paruman dibahas |
+| Kategori | Topik | Pokok bahasan sebuah paruman |
 | Komentar | Tanggapan | Pendapat krama dalam paruman |
 | Pengguna | Krama | Anggota banjar |
 | Leaderboard | Krama Teraktif | Prasasti krama paling aktif |
@@ -19,8 +19,8 @@ Identitas visual diambil dari motif kain poleng, warna tanah dan batu padas, ser
 ## Fitur
 
 - Daftar akun dan masuk dengan sesi yang tetap tersimpan setelah halaman di-refresh.
-- Daftar paruman berisi judul, cuplikan isi, banjar, waktu, jumlah tanggapan, serta nama dan avatar pembuat.
-- Filter paruman berdasarkan banjar, dilakukan sepenuhnya di sisi front-end.
+- Daftar paruman berisi judul, cuplikan isi, topik, waktu, jumlah tanggapan, serta nama dan avatar pembuat.
+- Filter paruman berdasarkan topik, dilakukan sepenuhnya di sisi front-end.
 - Detail paruman beserta seluruh tanggapan.
 - Membuat paruman baru dan memberi tanggapan.
 - Vote (setuju/tidak setuju) pada paruman dan tanggapan dengan *optimistic update* dan *rollback* jika gagal.

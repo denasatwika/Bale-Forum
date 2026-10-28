@@ -11,23 +11,29 @@ type ParumanDetailProps = {
 
 function ParumanDetail({ thread, authUserId, onVote }: ParumanDetailProps) {
   return (
-    <article className="paruman-detail">
-      <span className="banjar-tag">{`#${getCategoryLabel(thread.category)}`}</span>
-      <h2 className="paruman-detail__title">{thread.title}</h2>
-      <div className="paruman-detail__owner">
-        <Avatar src={thread.owner.avatar} name={thread.owner.name} />
-        <div>
-          <strong>{thread.owner.name}</strong>
-          <span>{postedAt(thread.createdAt)}</span>
+    <article className="card border-0 shadow-sm mb-4">
+      <div className="card-body p-4 p-md-5">
+        <span className="badge rounded-pill text-bg-light border text-primary text-capitalize mb-3">
+          {getCategoryLabel(thread.category)}
+        </span>
+        <h1 className="font-serif fw-bold display-6 mb-4">{thread.title}</h1>
+        <div className="d-flex align-items-center gap-3 mb-4">
+          <Avatar src={thread.owner.avatar} name={thread.owner.name} />
+          <div>
+            <div className="fw-semibold">{thread.owner.name}</div>
+            <small className="text-body-secondary">{postedAt(thread.createdAt)}</small>
+          </div>
         </div>
+        <p className="text-pre-line lh-lg">{toPlainText(thread.body)}</p>
       </div>
-      <p className="paruman-detail__body">{toPlainText(thread.body)}</p>
-      <VoteControl
-        upVotesBy={thread.upVotesBy}
-        downVotesBy={thread.downVotesBy}
-        authUserId={authUserId}
-        onVote={onVote}
-      />
+      <div className="card-footer bg-transparent px-4 px-md-5 py-3">
+        <VoteControl
+          upVotesBy={thread.upVotesBy}
+          downVotesBy={thread.downVotesBy}
+          authUserId={authUserId}
+          onVote={onVote}
+        />
+      </div>
     </article>
   );
 }

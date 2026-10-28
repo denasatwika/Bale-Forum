@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
-import { User, RegisterPayload } from '../../types';
+import type { User, RegisterPayload } from '../../types';
 import type { AppThunk } from '../index';
 
 export const ActionType = {

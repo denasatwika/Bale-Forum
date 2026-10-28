@@ -34,7 +34,7 @@ function App() {
     <>
       <Loading />
       <Navigation authUser={authUser} onLogout={onLogout} />
-      <main className="main">
+      <main className="container py-5">
         <Routes>
           <Route path="/" element={<ParumanPage />} />
           <Route

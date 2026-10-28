@@ -9,19 +9,25 @@ type ResponseListProps = {
 
 function ResponseList({ comments, authUserId, onVote }: ResponseListProps) {
   return (
-    <section className="response-list">
-      <h3>{`Tanggapan krama (${comments.length})`}</h3>
+    <section>
+      <h2 className="font-serif fw-bold fs-3 mb-3">
+        Tanggapan krama
+        {' '}
+        <span className="badge text-bg-secondary fs-6 align-middle">{comments.length}</span>
+      </h2>
       {comments.length === 0 ? (
-        <p className="empty-state">Belum ada tanggapan. Jadilah yang pertama.</p>
+        <p className="text-body-secondary">Belum ada tanggapan. Jadilah yang pertama.</p>
       ) : (
-        comments.map((comment) => (
-          <ResponseItem
-            key={comment.id}
-            comment={comment}
-            authUserId={authUserId}
-            onVote={onVote}
-          />
-        ))
+        <div className="list-group shadow-sm">
+          {comments.map((comment) => (
+            <ResponseItem
+              key={comment.id}
+              comment={comment}
+              authUserId={authUserId}
+              onVote={onVote}
+            />
+          ))}
+        </div>
       )}
     </section>
   );

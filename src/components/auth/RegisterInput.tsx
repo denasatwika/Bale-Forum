@@ -12,23 +12,23 @@ function RegisterInput({ onRegister }: RegisterInputProps) {
 
   return (
     <form
-      className="form"
       onSubmit={(event) => {
         event.preventDefault();
         onRegister({ name, email, password });
       }}
     >
-      <label htmlFor="name">
-        Nama
-        <input id="name" type="text" value={name} onChange={onNameChange} required />
-      </label>
-      <label htmlFor="email">
-        Email
-        <input id="email" type="email" value={email} onChange={onEmailChange} required />
-      </label>
-      <label htmlFor="password">
-        Kata sandi
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label fw-medium">Nama</label>
+        <input className="form-control" id="name" type="text" value={name} onChange={onNameChange} required />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label fw-medium">Email</label>
+        <input className="form-control" id="email" type="email" value={email} onChange={onEmailChange} required />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label fw-medium">Kata sandi</label>
         <input
+          className="form-control"
           id="password"
           type="password"
           value={password}
@@ -37,8 +37,8 @@ function RegisterInput({ onRegister }: RegisterInputProps) {
           placeholder="Minimal 6 karakter"
           required
         />
-      </label>
-      <button type="submit" className="button">Daftar</button>
+      </div>
+      <button type="submit" className="btn btn-primary w-100 mt-2">Daftar</button>
     </form>
   );
 }

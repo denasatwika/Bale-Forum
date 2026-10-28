@@ -74,17 +74,23 @@ export function asyncReceiveThreadDetail(threadId: string): AppThunk {
       dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
       alert((error as Error).message);
+    } finally {
+      dispatch(hideLoading());
     }
-    dispatch(hideLoading());
   };
 }
 
 export function asyncAddComment(threadId: string, content: string): AppThunk<Promise<boolean>> {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(showLoading());
     try {
       const comment = await api.createComment(threadId, content);
-      dispatch(addCommentActionCreator(comment));
+      // Respons Create Comment tidak menyertakan avatar, jadi diambil dari pengguna yang login
+      const { authUser } = getState();
+      const owner = authUser
+        ? { id: authUser.id, name: authUser.name, avatar: authUser.avatar }
+        : comment.owner;
+      dispatch(addCommentActionCreator({ ...comment, owner }));
       return true;
     } catch (error) {
       alert((error as Error).message);

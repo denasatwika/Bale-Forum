@@ -11,13 +11,13 @@ type ResponseItemProps = {
 
 function ResponseItem({ comment, authUserId, onVote }: ResponseItemProps) {
   return (
-    <article className="response-item">
-      <header className="response-item__header">
+    <article className="list-group-item px-4 py-3">
+      <header className="d-flex align-items-center gap-2 mb-2">
         <Avatar src={comment.owner.avatar} name={comment.owner.name} size="sm" />
-        <strong>{comment.owner.name}</strong>
-        <span>{postedAt(comment.createdAt)}</span>
+        <strong className="small">{comment.owner.name}</strong>
+        <small className="text-body-secondary">{`· ${postedAt(comment.createdAt)}`}</small>
       </header>
-      <p className="response-item__content">{toPlainText(comment.content)}</p>
+      <p className="text-pre-line mb-2">{toPlainText(comment.content)}</p>
       <VoteControl
         upVotesBy={comment.upVotesBy}
         downVotesBy={comment.downVotesBy}

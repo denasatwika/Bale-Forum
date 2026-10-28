@@ -33,22 +33,31 @@ function ParumanPage() {
   };
 
   return (
-    <section className="page">
-      <div className="page__header">
-        <div>
-          <h2>Paruman</h2>
-          <p>Ruang musyawarah krama. Pilih banjar untuk menyaring paruman.</p>
+    <section className="row justify-content-center">
+      <div className="col-lg-9">
+        <div className="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <p className="small fw-semibold text-uppercase text-primary mb-1" style={{ letterSpacing: '0.2em' }}>
+              Paruman yang sedang berlangsung
+            </p>
+            <h1 className="font-serif fw-bold display-5 mb-1">Paruman</h1>
+            <p className="text-body-secondary mb-0">Ruang musyawarah krama. Pilih topik untuk menyaring paruman.</p>
+          </div>
+          {authUser && (
+            <Link to="/paruman/baru" className="btn btn-primary rounded-pill px-4 shadow-sm">
+              + Paruman baru
+            </Link>
+          )}
         </div>
-        {authUser && (
-          <Link to="/paruman/baru" className="button">+ Paruman baru</Link>
-        )}
+        <div className="mb-4">
+          <BanjarList
+            categories={categories}
+            selected={selectedBanjar}
+            onSelect={setSelectedBanjar}
+          />
+        </div>
+        <ParumanList threads={threadList} authUserId={authUser?.id} onVote={onVote} />
       </div>
-      <BanjarList
-        categories={categories}
-        selected={selectedBanjar}
-        onSelect={setSelectedBanjar}
-      />
-      <ParumanList threads={threadList} authUserId={authUser?.id} onVote={onVote} />
     </section>
   );
 }

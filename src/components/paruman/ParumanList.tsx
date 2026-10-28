@@ -9,11 +9,15 @@ type ParumanListProps = {
 
 function ParumanList({ threads, authUserId, onVote }: ParumanListProps) {
   if (threads.length === 0) {
-    return <p className="empty-state">Belum ada paruman di banjar ini.</p>;
+    return (
+      <div className="alert alert-light border text-center text-body-secondary py-5">
+        Belum ada paruman dengan topik ini.
+      </div>
+    );
   }
 
   return (
-    <div className="paruman-list">
+    <div className="d-grid gap-3">
       {threads.map((thread) => (
         <ParumanItem key={thread.id} thread={thread} authUserId={authUserId} onVote={onVote} />
       ))}

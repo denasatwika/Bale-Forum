@@ -35,23 +35,25 @@ function DetailParumanPage() {
   const onAddComment = (content: string) => dispatch(asyncAddComment(id, content));
 
   return (
-    <section className="page page--narrow">
-      <Link to="/" className="back-link">← Kembali ke paruman</Link>
-      <ParumanDetail thread={threadDetail} authUserId={authUser?.id} onVote={onVoteThread} />
-      {authUser ? (
-        <ResponseInput onAddComment={onAddComment} />
-      ) : (
-        <p className="notice">
-          <Link to="/masuk">Masuk</Link>
-          {' '}
-          untuk memberi tanggapan.
-        </p>
-      )}
-      <ResponseList
-        comments={threadDetail.comments}
-        authUserId={authUser?.id}
-        onVote={onVoteComment}
-      />
+    <section className="row justify-content-center">
+      <div className="col-lg-8">
+        <Link to="/" className="d-inline-block mb-3 text-decoration-none">← Kembali ke paruman</Link>
+        <ParumanDetail thread={threadDetail} authUserId={authUser?.id} onVote={onVoteThread} />
+        {authUser ? (
+          <ResponseInput onAddComment={onAddComment} />
+        ) : (
+          <div className="alert alert-light border mb-4">
+            <Link to="/masuk">Masuk</Link>
+            {' '}
+            untuk memberi tanggapan.
+          </div>
+        )}
+        <ResponseList
+          comments={threadDetail.comments}
+          authUserId={authUser?.id}
+          onVote={onVoteComment}
+        />
+      </div>
     </section>
   );
 }

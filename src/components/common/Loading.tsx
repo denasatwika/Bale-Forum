@@ -5,8 +5,8 @@ function Loading() {
   const loading = useAppSelector((state) => state.loadingBar.default ?? 0);
 
   return (
-    <div className="loading">
-      <LoadingBar loading={loading} className="loading__bar" />
+    <div className="fixed-top" style={{ zIndex: 1080 }}>
+      <LoadingBar loading={loading} className="loading-bar" />
     </div>
   );
 }

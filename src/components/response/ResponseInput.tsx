@@ -9,18 +9,25 @@ function ResponseInput({ onAddComment }: ResponseInputProps) {
 
   return (
     <form
-      className="form response-input"
+      className="card border-0 shadow-sm mb-4"
       onSubmit={async (event) => {
         event.preventDefault();
         const isSuccess = await onAddComment(content);
         if (isSuccess) setContent('');
       }}
     >
-      <label htmlFor="comment">
-        Beri tanggapan
-        <textarea id="comment" rows={3} value={content} onChange={onContentChange} required />
-      </label>
-      <button type="submit" className="button">Kirim tanggapan</button>
+      <div className="card-body p-4">
+        <label htmlFor="comment" className="form-label fw-medium">Beri tanggapan</label>
+        <textarea
+          id="comment"
+          rows={3}
+          className="form-control mb-3"
+          value={content}
+          onChange={onContentChange}
+          required
+        />
+        <button type="submit" className="btn btn-primary">Kirim tanggapan</button>
+      </div>
     </form>
   );
 }

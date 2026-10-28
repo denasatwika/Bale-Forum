@@ -13,9 +13,9 @@ import type { VotePath } from './vote';
 const API_BASE_URL = 'https://forum-api.dicoding.dev/v1';
 
 interface ApiResponse<T> {
-    status: string;
-    message: string;
-    data: T;
+  status: string;
+  message: string;
+  data: T;
 }
 
 const putAccessToken = (token: string) => localStorage.setItem('accessToken', token);
@@ -25,9 +25,8 @@ const removeAccessToken = () => localStorage.removeItem('accessToken');
 async function request<T>(
   path: string,
   options: RequestInit = {},
-  withAuth = false):
-    Promise<T> {
-
+  withAuth = false,
+): Promise<T> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
   if (withAuth) headers.Authorization = `Bearer ${getAccessToken()}`;
 

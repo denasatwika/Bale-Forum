@@ -5,11 +5,11 @@ export interface User {
   avatar: string;
 }
 
-export interface RegisterPayload  {
+export interface RegisterPayload {
   name: string;
   email: string;
   password: string;
-};
+}
 
 export interface LoginPayload {
   email: string;
@@ -45,10 +45,10 @@ export interface ThreadDetail extends Omit<Thread, 'ownerId' | 'totalComments'> 
 }
 
 export interface NewThreadPayload {
-     title: string;
-     body: string;
-     category?: string
-};
+  title: string;
+  body: string;
+  category?: string;
+}
 
 export interface Leaderboard {
   user: User;

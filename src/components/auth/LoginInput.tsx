@@ -11,27 +11,27 @@ function LoginInput({ onLogin }: LoginInputProps) {
 
   return (
     <form
-      className="form"
       onSubmit={(event) => {
         event.preventDefault();
         onLogin({ email, password });
       }}
     >
-      <label htmlFor="email">
-        Email
-        <input id="email" type="email" value={email} onChange={onEmailChange} required />
-      </label>
-      <label htmlFor="password">
-        Kata sandi
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label fw-medium">Email</label>
+        <input className="form-control" id="email" type="email" value={email} onChange={onEmailChange} required />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label fw-medium">Kata sandi</label>
         <input
+          className="form-control"
           id="password"
           type="password"
           value={password}
           onChange={onPasswordChange}
           required
         />
-      </label>
-      <button type="submit" className="button">Masuk</button>
+      </div>
+      <button type="submit" className="btn btn-primary w-100 mt-2">Masuk</button>
     </form>
   );
 }

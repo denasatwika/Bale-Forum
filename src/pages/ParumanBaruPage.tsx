@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ParumanInput from '../components/paruman/ParumanInput';
 import { useAppDispatch } from '../states/hooks';
 import { asyncAddThread } from '../states/threads/action';
@@ -14,10 +14,17 @@ function ParumanBaruPage() {
   };
 
   return (
-    <section className="page page--narrow">
-      <h2>Ajukan paruman baru</h2>
-      <p>Sampaikan topik yang ingin dimusyawarahkan bersama krama.</p>
-      <ParumanInput onAddThread={onAddThread} />
+    <section className="row justify-content-center">
+      <div className="col-lg-8">
+        <Link to="/" className="d-inline-block mb-3 text-decoration-none">← Kembali ke paruman</Link>
+        <div className="card border-0 shadow-sm">
+          <div className="card-body p-4 p-md-5">
+            <h1 className="font-serif fw-bold display-6">Ajukan paruman baru</h1>
+            <p className="text-body-secondary mb-4">Sampaikan topik yang ingin dimusyawarahkan bersama krama.</p>
+            <ParumanInput onAddThread={onAddThread} />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

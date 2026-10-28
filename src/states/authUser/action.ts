@@ -17,7 +17,6 @@ export type UnsetAuthUserAction = {
   type: typeof ActionType.UNSET_AUTH_USER;
 };
 
-
 export function setAuthUserActionCreator(authUser: User): SetAuthUserAction {
   return { type: ActionType.SET_AUTH_USER, payload: { authUser } };
 }
@@ -25,7 +24,6 @@ export function setAuthUserActionCreator(authUser: User): SetAuthUserAction {
 export function unsetAuthUserActionCreator(): UnsetAuthUserAction {
   return { type: ActionType.UNSET_AUTH_USER };
 }
-
 
 export function asyncSetAuthUser(email: string, password: string): AppThunk {
   return async (dispatch) => {

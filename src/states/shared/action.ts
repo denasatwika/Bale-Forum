@@ -13,8 +13,9 @@ function asyncPopulateUsersAndThreads(): AppThunk {
       dispatch(receiveThreadsActionCreator(threads));
     } catch (error) {
       alert((error as Error).message);
+    } finally {
+      dispatch(hideLoading());
     }
-    dispatch(hideLoading());
   };
 }
 
