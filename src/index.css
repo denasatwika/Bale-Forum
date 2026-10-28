@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --poleng-hitam: #1f1b16;
+  --poleng-putih: #f4efe6;
+  --tanah-merah: #9c4a2f;
+  --tanah-coklat: #6b4f3a;
+  --kuning-prada: #c9a227;
+  --batu-padas: #b8ad9c;
+  --surface: #fffaf2;
+  --text: #2b241d;
+  --text-muted: #6f6253;
+  --radius: 12px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--poleng-putih);
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { font-size: 2rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--tanah-merah); }
+img { max-width: 100%; }
+
+/* Loading bar */
+.loading { position: fixed; inset: 0 0 auto; z-index: 100; }
+.loading__bar { height: 4px; background: linear-gradient(90deg, var(--tanah-merah), var(--kuning-prada)); }
+
+/* Navigasi dengan motif kain poleng di bawahnya */
+.navigation {
+  background: var(--poleng-hitam);
+  color: var(--poleng-putih);
+  margin-bottom: 10px;
+  position: relative;
+}
+.navigation::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -10px;
+  height: 10px;
+  background: repeating-conic-gradient(var(--poleng-hitam) 0 25%, var(--poleng-putih) 0 50%) 0 0 / 20px 20px;
+}
+.navigation__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation__brand {
+  color: var(--kuning-prada);
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.navigation__brand small { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; color: var(--batu-padas); font-weight: 400; }
+.navigation__links { display: flex; align-items: center; gap: 1.25rem; }
+.navigation__links a { color: var(--poleng-putih); text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+.navigation__links a.active { border-color: var(--kuning-prada); }
+.navigation__user { display: flex; align-items: center; gap: 0.5rem; }
+
+/* Tata letak */
+.main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+.page__header { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; }
+.page--narrow { max-width: 720px; margin: 0 auto; }
+.page--auth { max-width: 420px; margin: 0 auto; }
+.back-link { display: inline-block; margin-bottom: 1rem; }
+.empty-state, .notice { color: var(--text-muted); }
+
+/* Tombol & form */
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  background: var(--tanah-merah);
+  color: var(--poleng-putih);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--tanah-coklat); }
+.button--ghost { background: transparent; border: 1px solid var(--batu-padas); padding: 0.3rem 0.9rem; }
+.form { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+.form label { display: flex; flex-direction: column; gap: 0.35rem; font-weight: 500; }
+.form input, .form textarea {
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--batu-padas);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+.form input:focus, .form textarea:focus { outline: 2px solid var(--kuning-prada); border-color: transparent; }
+.form .button { align-self: flex-start; }
+
+/* Avatar */
+.avatar { border-radius: 50%; object-fit: cover; border: 2px solid var(--kuning-prada); }
+.avatar--sm { width: 28px; height: 28px; }
+.avatar--md { width: 44px; height: 44px; }
+.avatar--lg { width: 64px; height: 64px; }
+
+/* Filter banjar */
+.banjar-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.banjar-chip {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--batu-padas);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.banjar-chip--active { background: var(--poleng-hitam); color: var(--kuning-prada); border-color: var(--poleng-hitam); }
+.banjar-tag { font-size: 0.8rem; color: var(--tanah-coklat); font-weight: 700; }
+
+/* Kartu paruman */
+.paruman-list { display: flex; flex-direction: column; gap: 1rem; }
+.paruman-item, .paruman-detail, .response-item {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border-left: 5px solid var(--tanah-merah);
+  box-shadow: 0 1px 3px rgb(31 27 22 / 10%);
+}
+.paruman-item { display: flex; gap: 1rem; padding: 1.25rem; }
+.paruman-item__content { flex: 1; min-width: 0; }
+.paruman-item__title { font-size: 1.5rem; }
+.paruman-item__title a { color: var(--text); text-decoration: none; }
+.paruman-item__title a:hover { color: var(--tanah-merah); }
+.paruman-item__excerpt { color: var(--text-muted); }
+.paruman-item__meta { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); align-items: center; }
+.owner { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text); font-weight: 500; }
+
+/* Vote */
+.vote-control { display: flex; flex-direction: column; gap: 0.35rem; align-items: center; }
+.paruman-detail .vote-control, .response-item .vote-control { flex-direction: row; }
+.vote-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--batu-padas);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.vote-button--up-active { background: var(--tanah-merah); border-color: var(--tanah-merah); color: var(--poleng-putih); }
+.vote-button--down-active { background: var(--poleng-hitam); border-color: var(--poleng-hitam); color: var(--poleng-putih); }
+
+/* Detail & tanggapan */
+.paruman-detail { padding: 1.75rem; margin-bottom: 2rem; }
+.paruman-detail__title { font-size: 2.25rem; }
+.paruman-detail__owner { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1.25rem; }
+.paruman-detail__owner div { display: flex; flex-direction: column; }
+.paruman-detail__owner span { font-size: 0.85rem; color: var(--text-muted); }
+.paruman-detail__body { white-space: pre-line; }
+.response-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.response-item { padding: 1rem 1.25rem; border-left-color: var(--batu-padas); }
+.response-item__header { display: flex; gap: 0.5rem; align-items: center; font-size: 0.9rem; }
+.response-item__header span { color: var(--text-muted); font-size: 0.8rem; }
+.response-item__content { margin: 0.75rem 0; white-space: pre-line; }
+
+/* Krama Teraktif bergaya prasasti */
+.prasasti {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+  background: var(--poleng-hitam);
+  border-radius: var(--radius);
+  border: 3px double var(--kuning-prada);
+  color: var(--poleng-putih);
+}
+.prasasti__head { display: flex; justify-content: space-between; color: var(--batu-padas); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0 0.5rem 0.75rem; }
+.prasasti-item {
+  display: grid;
+  grid-template-columns: 2rem auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-top: 1px solid rgb(184 173 156 / 25%);
+}
+.prasasti-item__rank { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; font-weight: 700; color: var(--batu-padas); text-align: center; }
+.prasasti-item__score { font-weight: 700; color: var(--kuning-prada); }
+.prasasti-item em { color: var(--batu-padas); font-style: normal; font-size: 0.85rem; }
+.prasasti-item--top1 .prasasti-item__rank { color: var(--kuning-prada); }
+.prasasti-item--top2 .prasasti-item__rank { color: #d9d4c7; }
+.prasasti-item--top3 .prasasti-item__rank { color: #c27c4e; }
+
+@media (max-width: 600px) {
+  .navigation__brand small { display: none; }
+  .paruman-item { flex-direction: column; }
+  .paruman-item .vote-control { flex-direction: row; }
+}
