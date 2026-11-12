@@ -66,7 +66,7 @@ describe('threadDetailReducer function', () => {
     expect(nextState).toBeNull();
   });
 
-    it('should add the new comment at the beginning when given ADD_COMMENT action', () => {
+  it('should add the new comment at the beginning when given ADD_COMMENT action', () => {
     const initialState = fakeThreadDetail();
     const newComment = fakeComment('comment-3');
 
