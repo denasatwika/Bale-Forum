@@ -3,11 +3,12 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import pluginCypress from 'eslint-plugin-cypress';
 import daStyle from 'eslint-config-dicodingacademy';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'cypress/videos', 'cypress/screenshots']),
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     extends: [
@@ -24,5 +25,9 @@ export default defineConfig([
     rules: {
       'no-alert': 'off',
     },
+  },
+  {
+    files: ['cypress/**/*.ts'],
+    extends: [pluginCypress.configs.recommended],
   },
 ]);
