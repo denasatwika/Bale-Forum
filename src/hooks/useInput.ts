@@ -7,7 +7,7 @@ type InputChangeHandler = (
 function useInput(defaultValue = ''): [string, InputChangeHandler, (value: string) => void] {
   const [value, setValue] = useState(defaultValue);
   const onValueChange: InputChangeHandler = (event) => setValue(event.target.value);
-  return [value, onValueChange, setValue];
+  return [value, onValueChange, setValues];
 }
 
 export default useInput;
