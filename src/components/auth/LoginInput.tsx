@@ -18,7 +18,13 @@ function LoginInput({ onLogin }: LoginInputProps) {
     >
       <div className="mb-3">
         <label htmlFor="email" className="form-label fw-medium">Email</label>
-        <input className="form-control" id="email" type="email" value={email} onChange={onEmailChange} required />
+        <input
+          className="form-control"
+          id="email" type="email"
+          value={email}
+          onChange={onEmailChange}
+          data-testid="login-email"
+          required />
       </div>
       <div className="mb-3">
         <label htmlFor="password" className="form-label fw-medium">Kata sandi</label>
@@ -28,10 +34,11 @@ function LoginInput({ onLogin }: LoginInputProps) {
           type="password"
           value={password}
           onChange={onPasswordChange}
+          data-testid="login-password"
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary w-100 mt-2">Masuk</button>
+      <button type="submit" className="btn btn-primary w-100 mt-2" data-testid="login-submit">Masuk</button>
     </form>
   );
 }
