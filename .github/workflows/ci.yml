@@ -20,9 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: 0
 
       - name: Run automated tests
-        run: npm run ci:test
+        run: npm test
 
       - name: Lint
         run: npm run lint

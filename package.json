@@ -13,10 +13,7 @@
     "test:watch": "vitest",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "e2e": "start-server-and-test dev http://127.0.0.1:5173 cypress:run",
-    "ci:test": "npm test && npm run e2e:ci",
-    "cypress:run:chrome": "cypress run --browser chrome",
-    "e2e:ci": "start-server-and-test dev http://127.0.0.1:5173 cypress:run:chrome"
+    "e2e": "start-server-and-test dev http://127.0.0.1:5173 cypress:run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.13.0",
