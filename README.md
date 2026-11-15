@@ -56,6 +56,7 @@ Hak akses ditegakkan oleh server melalui token Bearer pada setiap request yang m
 - Vitest, jsdom, React Testing Library, dan `user-event` untuk unit dan integration test
 - Cypress untuk end-to-end test
 - ESLint dengan [Dicoding Academy JavaScript Style Guide](https://github.com/dicodingacademy/javascript-style-guide) dan `eslint-plugin-cypress`
+- Storybook untuk mengembangkan dan mendokumentasikan komponen secara terisolasi (React Ecosystem)
 
 **CI/CD**
 
@@ -80,6 +81,7 @@ src/
 ├── hooks/        → custom hook (useInput)
 ├── pages/        → halaman yang terhubung ke store
 ├── states/       → Redux: satu folder per slice (action.ts + reducer.ts), store, typed hooks
+├── stories/      → Storybook stories untuk komponen presentasional
 ├── types/        → tipe data API
 ├── utils/        → wrapper API, helper vote, format waktu dan teks
 └── setupTests.ts → konfigurasi Vitest (matcher jest-dom dan cleanup DOM)
@@ -114,6 +116,8 @@ Aplikasi berjalan di `http://localhost:5173`.
 | `npm run test:watch` | Menjalankan Vitest dalam mode watch |
 | `npm run e2e` | Menjalankan end-to-end test; server pengembangan dinyalakan dan dimatikan otomatis |
 | `npm run cypress:open` | Membuka dashboard Cypress interaktif (server pengembangan harus sudah berjalan) |
+| `npm run storybook` | Menjalankan Storybook di `http://localhost:6006` |
+| `npm run build-storybook` | Membangun Storybook sebagai situs statis ke folder `storybook-static` |
 
 ## Pengujian
 
