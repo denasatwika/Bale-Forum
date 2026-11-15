@@ -4,11 +4,12 @@ import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import pluginCypress from 'eslint-plugin-cypress';
+import storybook from 'eslint-plugin-storybook';
 import daStyle from 'eslint-config-dicodingacademy';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['dist', 'cypress/videos', 'cypress/screenshots']),
+  globalIgnores(['dist', 'cypress/videos', 'cypress/screenshots', 'storybook-static']),
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     extends: [
@@ -30,4 +31,5 @@ export default defineConfig([
     files: ['cypress/**/*.ts'],
     extends: [pluginCypress.configs.recommended],
   },
+  ...storybook.configs['flat/recommended'],
 ]);

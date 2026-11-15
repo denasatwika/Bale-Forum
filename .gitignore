@@ -27,3 +27,6 @@ dist-ssr
 cypress/videos
 cypress/screenshots
 cypress.env.json
+
+*storybook.log
+storybook-static
